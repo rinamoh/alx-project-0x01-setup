@@ -1,3 +1,20 @@
+export interface UserData {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: Address;  // Address with street included
+  phone: string;
+  website: string;
+  company: Company;
+}
+
+export interface UserModalProps {
+  onClose: () => void;
+  onSubmit: (post: UserData) => void;
+  initialUser?: UserProps;
+}
+
 export interface PostData {
   userId: number;
   id?: number;
