@@ -1,10 +1,10 @@
-import { UserProps } from "@/interfaces";
+// pages/users/index.tsx
 import React from "react";
 import UserCard from "@/components/common/UserCard";
-
+import { UserProps } from "@/interfaces";
 
 interface UsersPageProps {
-  posts: UserProps[]; // The fetched users array is passed under "posts" key by getStaticProps
+  posts: UserProps[];  // prop name must be 'posts' as per getStaticProps
 }
 
 const Users: React.FC<UsersPageProps> = ({ posts }) => {
@@ -12,7 +12,8 @@ const Users: React.FC<UsersPageProps> = ({ posts }) => {
     <div className="flex flex-col min-h-screen p-4 bg-gray-50">
       <h1 className="text-3xl font-bold mb-4">Users</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts?.map((user) => (
+        {/* Map over posts to dynamically render UserCard components */}
+        {posts.map(user => (
           <UserCard key={user.id} {...user} />
         ))}
       </div>
@@ -26,7 +27,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts,
+      posts,  // MUST keep prop name 'posts' so component receives it correctly
     },
   };
 }
