@@ -1,16 +1,16 @@
-import React from 'react';
+import { PostProps } from "@/interfaces";
 
-interface PostCardProps {
-  title: string;
-  excerpt?: string;
-  onClick?: () => void;
-}
-
-const PostCard: React.FC<PostCardProps> = ({ title, excerpt, onClick }) => {
+const PostCard: React.FC<PostProps> = ({ title, body, userId, id }) => {
   return (
-    <div onClick={onClick} style={{ border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem', cursor: onClick ? 'pointer' : 'default' }}>
-      <h2>{title}</h2>
-      {excerpt && <p>{excerpt}</p>}
+    <div className="max-w-xl mx-auto my-6 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <div className="mb-4">
+        <h2 className="text-2xl font-semibold text-gray-800">{title}</h2>
+      </div>
+      <p className="text-gray-600">{body}</p>
+      <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
+        <span>User ID: {userId}</span>
+        <span>Post ID: {id}</span>
+      </div>
     </div>
   );
 };
