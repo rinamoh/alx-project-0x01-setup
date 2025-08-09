@@ -1,5 +1,7 @@
+import Header from "@/components/layout/Header";
 import React from 'react';
 import PostCard from '../../components/common/PostCard';
+
 
 const PostsPage: React.FC = () => {
   // Example post data
@@ -9,6 +11,8 @@ const PostsPage: React.FC = () => {
   ];
 
   return (
+    <div className="flex flex-col h-screen">
+    <Header/>
     <main style={{ padding: '1rem' }}>
       <h1>Posts</h1>
       {posts.map(post => (
@@ -20,6 +24,7 @@ const PostsPage: React.FC = () => {
         />
       ))}
     </main>
+    </div>
   );
 };
 
